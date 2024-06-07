@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDTPOTUSSAY</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&display=swap">
+
+</head>
+<body>
+
+    <div class="header_container">
+        <a class="header_button" href="/about">About</a>
+        <a class="header_button" href="/">Home</a>
+        <h1>What Does The POTUS Say?</h1>
+    </div>
+    <h1>Guess History</h1>
+    <div class="container" >
+       
+    <table>
+        <tr>
+            <th>Executive Order #</th>
+            <th>Signing Date</th>
+            <th>President</th>
+            <th>Executive Order</th>
+
+        </tr>
+        {% for i in range(executive_order_list|length) %}
+        <tr>
+            <td>{{ executive_order_list[i]["executive_order_number"].values[0] }}</td>
+            <td>{{ executive_order_list[i]["signing_date"].values[0]  }}</td>
+            <td>{{ president_list[i]}}</td>
+            <td>{{ executive_order_list[i]["title"].values[0]  }}</td>
+
+        </tr>
+    {% endfor %}
+    
+    </table>
+    </div>
+    <h1>Guess History Percentage {{correct/total}}</h1>
+
+</body>
+</html>

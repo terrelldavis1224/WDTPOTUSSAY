@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDTPOTUSSAY</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&display=swap">
+
+</head>
+<body>
+    <h1 style="text-align: center;">Who Pass This?</h1>
+<h1 id="questionTitle" style="text-align: center;">{{executive["title"].values[0]}}</h2>
+
+    <div class="container">
+       
+        <form action="/guess" method="post">
+            <button class="guess_button" name="guess" value="Donald">Donald Trump</button>
+
+
+        </form>
+        <form action="/guess" method="post">
+        <button class="guess_button" name="guess" value="Joe">Joseph Biden</button>
+        </form>
+    </div>
+
+
+
+    <div class="container" style="flex-direction: column; align-items: center;">
+     <h1>{{correct}} / {{total}}</h1>
+    <a class="guess_button" href="/">Home</a>
+    </div>
+    <script src="{{ url_for('static', filename='js/nextpred.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='js/background.js') }}"></script>
+
+</body>
+</html>
